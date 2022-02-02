@@ -40,7 +40,7 @@
         {
             for (int j = 0; j < plane[i].Count; j++)
             {
-                if (plane[i][j] == 2 && plane[(i+1) % plane.Count][j] == 0)
+                if (plane[i][j] == 2 && plane[(i + 1) % plane.Count][j] == 0)
                 {
                     canMove.Add((i, j));
                 }
@@ -56,7 +56,7 @@
         return canMove.Count;
     }
 
-   
+
 }
 
 internal class AC25

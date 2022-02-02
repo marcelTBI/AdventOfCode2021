@@ -12,7 +12,7 @@
             maxy = Math.Max(maxy, y);
             if (x >= x1 && x <= x2 && y <= y1 && y >= y2) return maxy;
             if (y < y2) return -1;
-            vx = Math.Max(0, vx-1);
+            vx = Math.Max(0, vx - 1);
             vy -= 1;
         }
     }
@@ -36,14 +36,14 @@
         int maxx = 0;
         int maxy = 0;
         int cnt = 0;
-        for (int x = (int)Math.Sqrt(x1/2); x <= x2; x++)
+        for (int x = (int)Math.Sqrt(x1 / 2); x <= x2; x++)
             for (int y = y2; y <= -y2; y++)
             {
                 int fallHeight = SimulateFall(x, y, x1, x2, y1, y2);
                 if (fallHeight > maximal)
                 {
                     maximal = fallHeight;
-                    maxx = x;       
+                    maxx = x;
                     maxy = y;
                 }
                 if (fallHeight != -1)
@@ -58,6 +58,3 @@
         Console.WriteLine(cnt);
     }
 }
-
-
-

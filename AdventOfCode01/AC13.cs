@@ -1,9 +1,8 @@
 ﻿internal class AC13
 {
-
     public static List<(int, int)> Fold(List<(int, int)> dots, bool throughX, int foldLine)
     {
-        List<(int, int)> newDots = new List<(int, int)> ();
+        List<(int, int)> newDots = new List<(int, int)>();
         foreach (var dot in dots)
         {
             var x = dot.Item1;
@@ -27,8 +26,8 @@
         string[] lines = File.ReadAllLines(@"C:\Users\Vacuumlabs\source\repos\AdventOfCode2021\AdventOfCode01\inputs\input13.txt");
 
         // parse
-        List<(int, int)> dots = new List<(int, int)> ();
-        List<(int, bool)> folds = new List<(int, bool)> ();
+        List<(int, int)> dots = new List<(int, int)>();
+        List<(int, bool)> folds = new List<(int, bool)>();
         foreach (string line in lines)
         {
             string[] split = line.Trim().Split(',');
@@ -70,7 +69,5 @@
             }
             Console.WriteLine();
         }
-
     }
-
 }

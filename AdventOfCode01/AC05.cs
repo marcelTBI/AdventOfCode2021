@@ -29,7 +29,7 @@
         }
     }
 
- }
+}
 
 internal class AC05
 {
@@ -57,10 +57,11 @@ internal class AC05
             {
                 foreach (var (x, y) in vent.GetPoints())
                 {
-                    if (numVents.ContainsKey((x, y))) 
+                    if (numVents.ContainsKey((x, y)))
                     {
                         numVents[(x, y)] += 1;
-                    } else
+                    }
+                    else
                     {
                         numVents[(x, y)] = 1;
                     }

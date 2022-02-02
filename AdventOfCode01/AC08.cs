@@ -17,7 +17,8 @@
 
         // get lengths of quartets
         int appear = 0;
-        foreach (string[] quartet in quartets) {
+        foreach (string[] quartet in quartets)
+        {
             foreach (string dig in quartet)
             {
                 if (dig.Length == 7 || dig.Length == 4 || dig.Length == 3 || dig.Length == 2)
@@ -26,13 +27,13 @@
                 }
             }
         }
-        
 
         // print appearance
         Console.WriteLine(appear);
     }
 
-    public static bool Contain(string a, string b) {
+    public static bool Contain(string a, string b)
+    {
         foreach (char c in b)
         {
             if (!a.Contains(c)) return false;
@@ -54,7 +55,8 @@
             if (str.Length == 5 && Contain(str, allocatedFar[7])) return 3;
             if (str.Length == 5 && Contain(allocatedFar[6], str)) return 5;
             if (str.Length == 5) return 2;
-        } catch
+        }
+        catch
         {
             return -1;
         }
@@ -62,7 +64,7 @@
         return -1;
     }
 
-    public static Dictionary<string, TKey> Reverse<TKey> (IDictionary<TKey, string> source)
+    public static Dictionary<string, TKey> Reverse<TKey>(IDictionary<TKey, string> source)
     {
         var dictionary = new Dictionary<string, TKey>();
         foreach (var entry in source)
@@ -96,7 +98,7 @@
         }
 
         int sum = 0;
-        for (int i=0; i<digits.Count; i++)
+        for (int i = 0; i < digits.Count; i++)
         {
             var dgs = digits[i];
             var qua = quartets[i];
@@ -128,7 +130,6 @@
             sum += finalNum;
 
         }
-
 
         // print appearance
         Console.WriteLine(sum);

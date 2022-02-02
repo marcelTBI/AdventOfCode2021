@@ -1,6 +1,4 @@
-﻿using System;
-
-internal class Entry
+﻿internal class Entry
 {
     private static void Main()
     {

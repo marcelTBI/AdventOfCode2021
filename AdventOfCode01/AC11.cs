@@ -1,6 +1,6 @@
 ﻿internal class AC11
 {
-    public static void Flash(int[,] energy, int x, int y) 
+    public static void Flash(int[,] energy, int x, int y)
     {
         energy[x, y] = 11;
         for (int dx = -1; dx <= 1; dx++)
@@ -21,7 +21,6 @@
             }
     }
 
-
     public static void Run1()
     {
         // read file
@@ -29,7 +28,8 @@
 
         // parse lines 
         int[,] energy = new int[10, 10];
-        for (int i = 0; i < energy.GetLength(0); i++) {
+        for (int i = 0; i < energy.GetLength(0); i++)
+        {
             for (int j = 0; j < energy.GetLength(1); j++)
             {
                 energy[i, j] = Convert.ToInt32(Char.ToString(lines[i][j]));

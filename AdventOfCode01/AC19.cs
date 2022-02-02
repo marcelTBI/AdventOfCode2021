@@ -156,7 +156,6 @@ public class CoordinateDiff : Coordinate
 
 }
 
-
 public class Scanner
 {
     public List<Coordinate> beacons;
@@ -190,7 +189,7 @@ public class Scanner
 
                 for (int j = 0; j < beacons.Count; j++)
                 {
-                    if (i == j) continue;                  
+                    if (i == j) continue;
                     var diff = new CoordinateDiff(beacons[i], beacons[j], i, j).Transform(t);
                     if (scanner.beaconDiffs.TryGetValue(diff, out CoordinateDiff? ret))
                     {
@@ -220,7 +219,6 @@ public class Scanner
         return null;
     }
 }
-
 
 internal class AC19
 {

@@ -14,14 +14,14 @@
         long[] fishes = new long[9];
         foreach (int i in nums)
         {
-            fishes[i] += 1; 
+            fishes[i] += 1;
         }
 
         // procreate!
         for (int i = 0; i < 256; i++)
         {
             var newFish = fishes[0];
-            for (int j = 0; j < fishes.Length - 1; j++) 
+            for (int j = 0; j < fishes.Length - 1; j++)
                 fishes[j] = fishes[j + 1];
             fishes[6] += newFish;
             fishes[8] = newFish;

@@ -1,5 +1,4 @@
-﻿
-public class Leds
+﻿public class Leds
 {
     HashSet<(int, int, int)> ledOn = new HashSet<(int, int, int)>();
 
@@ -66,7 +65,7 @@ public class Cube
         // try to add all 6 possible Cubes
         // move X     
         Cube c;
-        c = new Cube(Xbeg, Ybeg, Zbeg, second.Xbeg - 1, Yend, Zend);        
+        c = new Cube(Xbeg, Ybeg, Zbeg, second.Xbeg - 1, Yend, Zend);
         if (c.Valid()) result.Add(c);
         c = new Cube(second.Xend + 1, Ybeg, Zbeg, Xend, Yend, Zend);
         if (c.Valid()) result.Add(c);
@@ -196,6 +195,3 @@ internal class AC22
 
     }
 }
-
-
-

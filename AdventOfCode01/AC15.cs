@@ -64,7 +64,6 @@
         return result;
     }
 
-
     public static void Run1()
     {
         // read file
@@ -98,6 +97,4 @@
         int length = BestPath(risks);
         Console.WriteLine(length);
     }
-
-
 }

@@ -101,7 +101,7 @@ class GameState
                         ngs.corridors[hallway[h] - 1].Push(hallway[h]);
 
                         // calculate energy as num steps * energy_req
-                        int numSteps = 2 * needPassable.Count + 5 - corridors[hallway[h]-1].Count;
+                        int numSteps = 2 * needPassable.Count + 5 - corridors[hallway[h] - 1].Count;
                         if (h == 0 || h == 6) numSteps--;
                         long newEnergy = numSteps * (long)Math.Pow(10, hallway[h] - 1);
 
@@ -176,7 +176,7 @@ class GameState
         for (int i = 0; i < 4; i++)
         {
             var arr = corridors[i].ToArray();
-            if (arr.Length != 4 || arr.Sum() != 4 * (i+1)) return false;
+            if (arr.Length != 4 || arr.Sum() != 4 * (i + 1)) return false;
         }
         return true;
     }
@@ -304,6 +304,3 @@ internal class AC23
         }
     }
 }
-
-
-

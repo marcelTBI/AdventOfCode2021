@@ -1,7 +1,7 @@
-﻿internal class AC01 
+﻿internal class AC01
 {
     public static void Run1()
-    {        
+    {
         string[] lines = File.ReadAllLines(@"C:\Users\Vacuumlabs\source\repos\AdventOfCode2021\AdventOfCode01\inputs\input1.txt");
         long lastDepth = long.MaxValue;
         int times = 0;

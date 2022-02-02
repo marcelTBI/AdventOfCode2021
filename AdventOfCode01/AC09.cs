@@ -61,7 +61,6 @@
             }
         }
 
-
         // print appearance
         Console.WriteLine(lowest);
 

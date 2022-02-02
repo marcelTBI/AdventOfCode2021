@@ -1,5 +1,4 @@
-﻿
-public class Packet
+﻿public class Packet
 {
     public int version;
     public int id;
@@ -96,6 +95,7 @@ public class Packet
     }
 
 }
+
 internal class AC16
 {
     public static void Run1()
@@ -119,8 +119,4 @@ internal class AC16
         // display them
         packet.Print();
     }
-
-
 }
-
-

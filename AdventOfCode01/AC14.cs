@@ -1,6 +1,5 @@
 ﻿internal class AC14
 {
-
     public static string ApplyRules(Dictionary<string, string> rules, string template)
     {
         string newTemplate = "";
@@ -27,7 +26,7 @@
         }
 
         // apply rules X times
-        for (int steps=0; steps < 10; steps++)
+        for (int steps = 0; steps < 10; steps++)
         {
             Console.WriteLine(steps);
             template = ApplyRules(rules, template);
@@ -72,7 +71,7 @@
         }
 
         Dictionary<string, long> counts = new Dictionary<string, long>();
-        for (int i = 0; i < template.Length-1; i++)
+        for (int i = 0; i < template.Length - 1; i++)
         {
             var temp = template[i..(i + 2)];
             if (!counts.ContainsKey(temp))
@@ -103,8 +102,6 @@
         cnts[template[0]]++;
         cnts[template[^1]]++;
 
-        Console.WriteLine((cnts.Values.Max() - cnts.Values.Min())/2);
-
+        Console.WriteLine((cnts.Values.Max() - cnts.Values.Min()) / 2);
     }
-
 }

@@ -8,23 +8,25 @@
         }
     }
 
-    public static T[,] FilterMatrix<T>(this T[,] array, int[] removeRows) {
+    public static T[,] FilterMatrix<T>(this T[,] array, int[] removeRows)
+    {
         T[,] res = new T[array.GetLength(0) - removeRows.Length, array.GetLength(1)];
 
         int h = 0;
-        for (var i = 0; i < array.GetLength(0); i++) 
+        for (var i = 0; i < array.GetLength(0); i++)
         {
             bool contains = false;
             for (var k = 0; k < removeRows.Length; k++)
             {
-                if (removeRows[k] == i) 
+                if (removeRows[k] == i)
                 {
                     contains = true;
                     break;
                 }
             }
-            if (contains) { 
-                continue; 
+            if (contains)
+            {
+                continue;
             }
             for (int j = 0; j < array.GetLength(1); j++)
             {
@@ -66,7 +68,9 @@ internal class AC03
             {
                 binaryNumber += '1';
                 oppositeNumber += '0';
-            } else {
+            }
+            else
+            {
                 binaryNumber += '0';
                 oppositeNumber += '1';
             }
@@ -95,7 +99,7 @@ internal class AC03
         bool[,]? savedMatrix = matrix.Clone() as bool[,];
         if (savedMatrix == null) throw new Exception();
 
-        
+
         for (int i = 0; i < lines[0].Length; i++)
         {
             if (matrix.GetLength(0) == 1)
@@ -110,7 +114,8 @@ internal class AC03
         }
 
         string binaryNumber = "";
-        for (int i = 0; i < matrix.GetLength(1); i++) {
+        for (int i = 0; i < matrix.GetLength(1); i++)
+        {
             binaryNumber += matrix[0, i] ? '1' : '0';
         }
         var oxygen = Convert.ToInt32(binaryNumber, 2);

@@ -1,5 +1,4 @@
-﻿
-public class Dice
+﻿public class Dice
 {
     int current = 1;
     public int rolls = 0;
@@ -200,6 +199,3 @@ internal class AC21
         Console.WriteLine(Math.Max(players.wins1, players.wins2));
     }
 }
-
-
-

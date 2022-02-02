@@ -7,7 +7,7 @@
 
     public static int CalcFuel2(int[] nums, int target)
     {
-        return (from num in nums select Math.Abs(num - target) * (Math.Abs(num - target)+1) / 2).ToArray().Sum();
+        return (from num in nums select Math.Abs(num - target) * (Math.Abs(num - target) + 1) / 2).ToArray().Sum();
     }
 
 

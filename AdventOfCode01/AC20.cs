@@ -1,5 +1,4 @@
-﻿
-public class Enhancement
+﻿public class Enhancement
 {
     readonly List<bool> alg;
     Dictionary<int, int> usage = new Dictionary<int, int>();
@@ -138,6 +137,3 @@ internal class AC20
         }
     }
 }
-
-
-

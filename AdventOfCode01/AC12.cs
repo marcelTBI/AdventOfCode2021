@@ -1,6 +1,5 @@
 ﻿internal class AC12
 {
-
     public static int SearchPath(Dictionary<string, List<string>> caves, string current, HashSet<string> foundAlready, bool time)
     {
         if (current == "end")
@@ -17,13 +16,14 @@
                 foundAlready.Add(cave);
                 ret += SearchPath(caves, cave, foundAlready, time);
                 foundAlready.Remove(cave);
-            } else if (time && cave != "start")
+            }
+            else if (time && cave != "start")
             {
                 foundAlready.Add(cave + "time");
                 ret += SearchPath(caves, cave, foundAlready, false);
                 foundAlready.Remove(cave + "time");
             }
-            
+
         }
         return ret;
     }
@@ -55,5 +55,4 @@
 
         Console.WriteLine(paths);
     }
-
 }
