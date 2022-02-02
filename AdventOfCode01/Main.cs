@@ -4,7 +4,6 @@ internal class Entry
 {
     private static void Main(string[] args)
     {
-        AC22.Run1(args);
-
+        AC25.Run1(args);
     }
 }
