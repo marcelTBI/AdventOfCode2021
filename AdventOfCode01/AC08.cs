@@ -1,11 +1,9 @@
-﻿using System;
-
-internal class AC08
+﻿internal class AC08
 {
-    public static void Run1(string[] args)
+    public static void Run1()
     {
         // read file
-        string[] lines = File.ReadAllLines(@"C:\Users\Silence\source\repos\AdventOfCode01\AdventOfCode01\input8.txt");
+        string[] lines = File.ReadAllLines(@"C:\Users\Vacuumlabs\source\repos\AdventOfCode2021\AdventOfCode01\inputs\input8.txt");
 
         // parse lines
         List<string[]> digits = new List<string[]>();
@@ -82,7 +80,7 @@ internal class AC08
         return new string(characters);
     }
 
-    public static void Run2(string[] args)
+    public static void Run2()
     {
         // read file
         string[] lines = File.ReadAllLines(@"C:\Users\Silence\source\repos\AdventOfCode01\AdventOfCode01\input8.txt");
@@ -98,14 +96,14 @@ internal class AC08
         }
 
         int sum = 0;
-        for (int i=0; i<digits.Count(); i++)
+        for (int i=0; i<digits.Count; i++)
         {
             var dgs = digits[i];
             var qua = quartets[i];
 
             // go through allocation
             Dictionary<int, string> allocatedFar = new Dictionary<int, string>();
-            while (allocatedFar.Count() != 10)
+            while (allocatedFar.Count != 10)
             {
                 foreach (string d in dgs)
                 {

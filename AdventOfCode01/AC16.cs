@@ -6,7 +6,7 @@ public class Packet
     public string remainder;
     public long literal;
     public bool lengthType;
-    List<Packet> packets = new List<Packet>();
+    readonly List<Packet> packets = new List<Packet>();
 
     public Packet(string binary)
     {
@@ -98,10 +98,10 @@ public class Packet
 }
 internal class AC16
 {
-    public static void Run1(string[] args)
+    public static void Run1()
     {
         // read file
-        string[] lines = File.ReadAllLines(@"C:\Users\Vacuumlabs\source\repos\AdventOfCode01\AdventOfCode01\input16.txt");
+        string[] lines = File.ReadAllLines(@"C:\Users\Vacuumlabs\source\repos\AdventOfCode2021\AdventOfCode01\inputs\input16.txt");
         //lines[0] = "9C0141080250320F1802104A08";
 
         // parse line

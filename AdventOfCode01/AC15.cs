@@ -21,7 +21,7 @@
             int y = element.Item2;
 
             // end 
-            if (x == risks[^1].Length - 1 && y == risks.Count() - 1)
+            if (x == risks[^1].Length - 1 && y == risks.Count - 1)
             {
                 return currentRisk;
             }
@@ -32,7 +32,7 @@
             if (x > 0 && !visited.Contains((x - 1, y))) tryAdd.Add((x - 1, y, risks[x - 1][y] + currentRisk));
             if (y > 0 && !visited.Contains((x, y - 1))) tryAdd.Add((x, y - 1, risks[x][y - 1] + currentRisk));
             if (x < risks[0].Length - 1 && !visited.Contains((x + 1, y))) tryAdd.Add((x + 1, y, risks[x + 1][y] + currentRisk));
-            if (y < risks.Count() - 1 && !visited.Contains((x, y + 1))) tryAdd.Add((x, y + 1, risks[x][y + 1] + currentRisk));
+            if (y < risks.Count - 1 && !visited.Contains((x, y + 1))) tryAdd.Add((x, y + 1, risks[x][y + 1] + currentRisk));
 
             for (int i = 0; i < tryAdd.Count; i++)
             {
@@ -65,10 +65,10 @@
     }
 
 
-    public static void Run1(string[] args)
+    public static void Run1()
     {
         // read file
-        string[] lines = File.ReadAllLines(@"C:\Users\Vacuumlabs\source\repos\AdventOfCode01\AdventOfCode01\input15.txt");
+        string[] lines = File.ReadAllLines(@"C:\Users\Vacuumlabs\source\repos\AdventOfCode2021\AdventOfCode01\inputs\input15.txt");
 
         // parse lines
         List<short[]> risks = new List<short[]>();
@@ -84,7 +84,7 @@
             risks[i] = Extend(risks[i]);
         }
         // now elongate columns
-        int len = risks.Count();
+        int len = risks.Count;
         for (int i = 1; i < 5; i++)
         {
             for (int j = 0; j < len; j++)

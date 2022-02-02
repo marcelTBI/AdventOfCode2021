@@ -1,7 +1,7 @@
 ﻿
 public class Enhancement
 {
-    List<bool> alg;
+    readonly List<bool> alg;
     Dictionary<int, int> usage = new Dictionary<int, int>();
 
     public Enhancement(string alg)
@@ -107,10 +107,10 @@ public class Image
 internal class AC20
 {
 
-    public static void Run1(string[] args)
+    public static void Run1()
     {
         // read file
-        string[] lines = File.ReadAllLines(@"C:\Users\Vacuumlabs\source\repos\AdventOfCode01\AdventOfCode01\input20.txt");
+        string[] lines = File.ReadAllLines(@"C:\Users\Vacuumlabs\source\repos\AdventOfCode2021\AdventOfCode01\inputs\input20.txt");
 
         // parse enhacement alg.
         Enhancement enh = new Enhancement(lines[0]);

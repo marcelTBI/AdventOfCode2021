@@ -38,7 +38,7 @@ public class Instruction
             case "div": state[dest] = state[dest] / (applyState ? state[second] : second); break;
             case "mod": state[dest] = state[dest] % (applyState ? state[second] : second); break;
             case "eql": state[dest] = state[dest] == (applyState ? state[second] : second) ? 1 : 0; break;
-            default: throw new ArgumentException();
+            default: throw new ArgumentException("Invalid input argument");
         }
         return (state, consumed);
     }
@@ -116,10 +116,10 @@ public class Theory
 internal class AC24
 {
 
-    public static void Run1(string[] args)
+    public static void Run1()
     {
         // read file
-        string[] lines = File.ReadAllLines(@"C:\Users\Vacuumlabs\source\repos\AdventOfCode2021\AdventOfCode01\input24.txt");
+        string[] lines = File.ReadAllLines(@"C:\Users\Vacuumlabs\source\repos\AdventOfCode2021\AdventOfCode01\inputs\input24.txt");
 
         int instrNum = 50;
         Program program = new Program(lines, instrNum);

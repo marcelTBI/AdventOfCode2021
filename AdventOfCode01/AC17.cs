@@ -17,7 +17,7 @@
         }
     }
 
-    public static void Run1(string[] args)
+    public static void Run1()
     {
         // read file
         //string[] lines = File.ReadAllLines(@"C:\Users\Vacuumlabs\source\repos\AdventOfCode01\AdventOfCode01\input16.txt");

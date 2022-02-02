@@ -21,10 +21,10 @@
         return newDots.Distinct().ToList();
     }
 
-    public static void Run1(string[] args)
+    public static void Run1()
     {
         // read file
-        string[] lines = File.ReadAllLines(@"C:\Users\Vacuumlabs\source\repos\AdventOfCode01\AdventOfCode01\input13.txt");
+        string[] lines = File.ReadAllLines(@"C:\Users\Vacuumlabs\source\repos\AdventOfCode2021\AdventOfCode01\inputs\input13.txt");
 
         // parse
         List<(int, int)> dots = new List<(int, int)> ();
@@ -49,7 +49,7 @@
             bool throughX = fold.Item2;
             int foldLine = fold.Item1;
             dots = Fold(dots, throughX, foldLine);
-            Console.WriteLine(dots.Count());
+            Console.WriteLine(dots.Count);
             //break;
         }
 

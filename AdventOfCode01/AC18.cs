@@ -1,13 +1,13 @@
 ﻿public class SnailNum
 {
     public int depth;
-    public SnailNum left = null;
-    public SnailNum right = null;
-    public SnailNum parent = null;
+    public SnailNum? left = null;
+    public SnailNum? right = null;
+    public SnailNum? parent = null;
     public int literal = -1;
     public int length = 0;
 
-    public SnailNum(string snailNum, SnailNum parent = null)
+    public SnailNum(string snailNum, SnailNum? parent = null)
     {
         this.parent = parent;
         if (parent == null) depth = 0;
@@ -72,16 +72,26 @@
 
     public void ExplodeLeft()
     {
+        if (left == null) throw new Exception();
+        if (right == null) throw new Exception();
+        if (parent == null) throw new Exception();
+        if (left.left == null) throw new Exception();
+        if (left.right == null) throw new Exception();
         int leftLiteral = left.left.literal;
         int rightLiteral = left.right.literal;
         left = new SnailNum(0, this);
         right.AddLeft(rightLiteral);
         parent.TryAddLeft(leftLiteral, this);
-        
+
     }
 
     public void ExplodeRight()
     {
+        if (left == null) throw new Exception();
+        if (right == null) throw new Exception();
+        if (parent == null) throw new Exception();
+        if (right.left == null) throw new Exception();
+        if (right.right == null) throw new Exception();
         int leftLiteral = right.left.literal;
         int rightLiteral = right.right.literal;
         right = new SnailNum(0, this);
@@ -97,6 +107,7 @@
         }
         else
         {
+            if (left == null) throw new Exception();
             left.AddLeft(add);
         }
 
@@ -110,6 +121,7 @@
         }
         else
         {
+            if (right == null) throw new Exception();
             right.AddRight(add);
         }
     }
@@ -118,6 +130,7 @@
     {
         if (left != child)
         {
+            if (left == null) throw new Exception();
             left.AddRight(add);
         }
         else if (parent != null)
@@ -130,6 +143,7 @@
     {
         if (right != child)
         {
+            if (right == null) throw new Exception();
             right.AddLeft(add);
         }
         else if (parent != null)
@@ -172,6 +186,8 @@
         }
         else if (literal == -1)
         {
+            if (left == null) throw new Exception();
+            if (right == null) throw new Exception();
             if (ret == 0) ret += left.TrySplit();
             if (ret == 0) ret += right.TrySplit();
         }
@@ -202,8 +218,10 @@
         else
         {
             Console.Write('[');
+            if (left == null) throw new Exception();
             left.Print();
             Console.Write(',');
+            if (right == null) throw new Exception();
             right.Print();
             Console.Write(']');
             //Console.Write(depth);
@@ -217,7 +235,9 @@
         {
             return (long)literal;
         }
-        return 3*left.Magnitude() + 2*right.Magnitude();
+        if (left == null) throw new Exception();
+        if (right == null) throw new Exception();
+        return 3 * left.Magnitude() + 2 * right.Magnitude();
     }
 }
 internal class AC18
@@ -225,7 +245,7 @@ internal class AC18
     public static void Run1(string[] args)
     {
         // read file
-        string[] lines = File.ReadAllLines(@"C:\Users\Vacuumlabs\source\repos\AdventOfCode01\AdventOfCode01\input18.txt");
+        string[] lines = File.ReadAllLines(@"C:\Users\Vacuumlabs\source\repos\AdventOfCode2021\AdventOfCode01\inputs\input18.txt");
         //lines[0] = "[[[[4,3],4],4],[7,[[8,4],9]]]";
         //lines[1] = "[1,1]";
 
@@ -245,15 +265,12 @@ internal class AC18
 
     }
 
-    public static void Run2(string[] args)
+    public static void Run2()
     {
         // read file
-        string[] lines = File.ReadAllLines(@"C:\Users\Vacuumlabs\source\repos\AdventOfCode01\AdventOfCode01\input18.txt");
+        string[] lines = File.ReadAllLines(@"C:\Users\Vacuumlabs\source\repos\AdventOfCode2021\AdventOfCode01\inputs\input18.txt");
         //lines[0] = "[[[[4,3],4],4],[7,[[8,4],9]]]";
         //lines[1] = "[1,1]";
-
-        // parse first
-        SnailNum first = new SnailNum(lines[0]);
 
         long largest = 0;
         for (int i = 0; i < lines.Length; i++)
@@ -263,7 +280,7 @@ internal class AC18
                 addition.Reduce();
                 largest = Math.Max(addition.Magnitude(), largest);
             }
-               
+
         Console.WriteLine(largest);
 
     }

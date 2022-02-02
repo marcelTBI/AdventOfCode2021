@@ -32,8 +32,6 @@
     {
         int tx = transformNum % 4;
         int tyz = transformNum / 4;
-        int ty = tyz / 2;
-        int tz = tyz - ty;
 
         (int, int, int) coord = (x, y, z);
 
@@ -49,8 +47,6 @@
     {
         int tx = transformNum % 4;
         int tyz = transformNum / 4;
-        int ty = tyz / 2;
-        int tz = tyz - ty;
 
         (int, int, int) coord = (x, y, z);
 
@@ -65,7 +61,7 @@
         return Convert.ToString(x) + ',' + Convert.ToString(y) + ',' + Convert.ToString(z);
     }
 
-    public override bool Equals(object obj)
+    public override bool Equals(object? obj)
     {
         Coordinate? coord = obj as Coordinate;
         if (coord == null) return false;
@@ -79,14 +75,11 @@
 
     public static Coordinate operator -(Coordinate l)
     {
-        if (ReferenceEquals(l, null)) return null;
         return new Coordinate(-l.x, -l.y, -l.z);
     }
 
     public static Coordinate operator +(Coordinate l, Coordinate r)
     {
-        if (ReferenceEquals(l, null)) return null;
-        if (ReferenceEquals(r, null)) return null;
         return new Coordinate(l.x + r.x, l.y + r.y, l.z + r.z);
     }
 
@@ -128,29 +121,31 @@ public class CoordinateDiff : Coordinate
         return new CoordinateDiff(temp.x, temp.y, temp.z, idxLeft, idxRight);
     }
 
-    public override bool Equals(object obj)
+    public override bool Equals(object? obj)
     {
         CoordinateDiff? coord = obj as CoordinateDiff;
         if (coord == null) return false;
         else return this.x == coord.x && this.y == coord.y && this.z == coord.z;
     }
 
-    public static bool operator ==(CoordinateDiff l, CoordinateDiff r)
+    public static bool operator ==(CoordinateDiff? l, CoordinateDiff? r)
     {
         if (ReferenceEquals(l, r)) return true;
-        if (ReferenceEquals(r, null)) return false;
-        if (ReferenceEquals(l, null)) return false;
+        if (r is null) return false;
+        if (l is null) return false;
         return l.Equals(r);
     }
 
     public static CoordinateDiff operator -(CoordinateDiff l)
     {
-        if (ReferenceEquals(l, null)) return null;
         return new CoordinateDiff(-l.x, -l.y, -l.z, l.idxLeft, l.idxRight);
     }
 
-    public static bool operator !=(CoordinateDiff l, CoordinateDiff r)
+    public static bool operator !=(CoordinateDiff? l, CoordinateDiff? r)
     {
+        if (ReferenceEquals(l, r)) return true;
+        if (r is null) return false;
+        if (l is null) return false;
         return !l.Equals(r);
     }
 
@@ -185,7 +180,7 @@ public class Scanner
     public (int, int, int, bool)? CommonBeacons(Scanner scanner, int minFound = 11)
     {
         int lastJ = 0, lastLeft = 0, lastRight = 0;
-        for (int i = 0; i < beacons.Count(); i++)
+        for (int i = 0; i < beacons.Count; i++)
         {
             for (int t = 0; t < 24; t++)
             {
@@ -193,12 +188,11 @@ public class Scanner
                 int foundBeacons = 0;
                 Dictionary<int, int> counts = new Dictionary<int, int>();
 
-                for (int j = 0; j < beacons.Count(); j++)
+                for (int j = 0; j < beacons.Count; j++)
                 {
-                    if (i == j) continue;
-                    CoordinateDiff ret;
+                    if (i == j) continue;                  
                     var diff = new CoordinateDiff(beacons[i], beacons[j], i, j).Transform(t);
-                    if (scanner.beaconDiffs.TryGetValue(diff, out ret))
+                    if (scanner.beaconDiffs.TryGetValue(diff, out CoordinateDiff? ret))
                     {
                         foundBeacons++;
                         if (!counts.ContainsKey(ret.idxLeft)) counts[ret.idxLeft] = 0;
@@ -241,10 +235,10 @@ internal class AC19
         return result;
     }
 
-    public static void Run1(string[] args)
+    public static void Run1()
     {
         // read file
-        string[] lines = File.ReadAllLines(@"C:\Users\Vacuumlabs\source\repos\AdventOfCode01\AdventOfCode01\input19.txt");
+        string[] lines = File.ReadAllLines(@"C:\Users\Vacuumlabs\source\repos\AdventOfCode2021\AdventOfCode01\inputs\input19.txt");
 
         // parse file
         List<Scanner> scanners = new List<Scanner>();
@@ -265,25 +259,6 @@ internal class AC19
             }
         }
 
-        /*for (int i = 0; i < 24; i++)
-        {
-            // Console.WriteLine(new Coordinate(1, 2, 3));
-            Console.WriteLine((new Coordinate(1, 2, 3)).Transform(i));
-            Console.WriteLine((new Coordinate(1, 2, 3)).Transform(i).TransformInv(i));
-        }*/
-
-        /*Console.WriteLine(scanners[0].CommonBeacons(scanners[1]));
-
-        (int, int, int)? tuple = scanners[0].CommonBeacons(scanners[1]);
-        if (tuple != null)
-        {
-            Console.WriteLine(scanners[0].beacons[tuple.Value.Item1]);
-            Console.WriteLine(scanners[1].beacons[tuple.Value.Item2]);
-            Console.WriteLine(scanners[0].beacons[tuple.Value.Item1].Transform(tuple.Value.Item3));
-            Console.WriteLine(scanners[1].beacons[tuple.Value.Item2].Transform(tuple.Value.Item3));
-            Console.WriteLine(new CoordinateDiff(scanners[0].beacons[tuple.Value.Item1], scanners[1].beacons[tuple.Value.Item2].Transform(tuple.Value.Item3), 0, 0));
-        }*/
-
         Dictionary<int, (CoordinateDiff, int, int)> connectedScanners = new Dictionary<int, (CoordinateDiff, int, int)>();
         Dictionary<int, List<Coordinate>> beaconPos = new Dictionary<int, List<Coordinate>>();
         Dictionary<int, Coordinate> scannerPos = new Dictionary<int, Coordinate>();
@@ -294,10 +269,10 @@ internal class AC19
         Stack<int> toConnect = new Stack<int>();
         toConnect.Push(0);
 
-        while (connectedScanners.Count() != scanners.Count())
+        while (connectedScanners.Count != scanners.Count)
         {
             int tryConnect = toConnect.Pop();
-            for (int i = 0; i < scanners.Count(); i++)
+            for (int i = 0; i < scanners.Count; i++)
             {
                 if (connectedScanners.ContainsKey(i)) continue;
                 (int, int, int, bool)? common = scanners[tryConnect].CommonBeacons(scanners[i]);
@@ -335,9 +310,9 @@ internal class AC19
             {
                 coordinates.Add(beaconPos[i][j]);
             }
-            Console.WriteLine(coordinates.Count());
+            Console.WriteLine(coordinates.Count);
         }
-        Console.WriteLine(coordinates.Count());
+        Console.WriteLine(coordinates.Count);
 
         int maxDist = 0;
         for (int i = 0; i < scannerPos.Count; i++)
@@ -353,6 +328,3 @@ internal class AC19
     }
 
 }
-
-
-

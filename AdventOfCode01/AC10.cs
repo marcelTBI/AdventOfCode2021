@@ -1,9 +1,9 @@
 ﻿internal class AC10
 {
-    public static void Run1(string[] args)
+    public static void Run1()
     {
         // read file
-        string[] lines = File.ReadAllLines(@"C:\Users\Vacuumlabs\source\repos\AdventOfCode01\AdventOfCode01\input10.txt");
+        string[] lines = File.ReadAllLines(@"C:\Users\Vacuumlabs\source\repos\AdventOfCode2021\AdventOfCode01\inputs\input10.txt");
 
         // go through lines and build 
         Dictionary<char, int> scores = new Dictionary<char, int>() { { ')', 3}, { ']', 57 }, { '}', 1197 }, { '>', 25137 }};
@@ -38,7 +38,7 @@
             if (!corrupted)
             {
                 long score = 0;
-                while (pars.Count() > 0)
+                while (pars.Count > 0)
                 {
                     score *= 5;
                     score += scores2[pars.Pop()];
@@ -52,6 +52,6 @@
 
         // print output 2
         scoresIncomplete.Sort();
-        Console.WriteLine(scoresIncomplete[(scoresIncomplete.Count() - 1)/2]);
+        Console.WriteLine(scoresIncomplete[(scoresIncomplete.Count - 1)/2]);
     }
 }

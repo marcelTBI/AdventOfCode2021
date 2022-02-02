@@ -1,6 +1,4 @@
-﻿using System;
-
-internal class AC07
+﻿internal class AC07
 {
     public static int CalcFuel(int[] nums, int target)
     {
@@ -13,10 +11,10 @@ internal class AC07
     }
 
 
-    public static void Run1(string[] args)
+    public static void Run1()
     {
         // read file
-        string[] lines = File.ReadAllLines(@"C:\Users\Silence\source\repos\AdventOfCode01\AdventOfCode01\input7.txt");
+        string[] lines = File.ReadAllLines(@"C:\Users\Vacuumlabs\source\repos\AdventOfCode2021\AdventOfCode01\inputs\input7.txt");
         //lines[0] = "16,1,2,0,4,2,7,1,2,14";
 
         // parse nums

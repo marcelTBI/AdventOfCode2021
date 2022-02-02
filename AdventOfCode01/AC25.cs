@@ -62,17 +62,16 @@
 internal class AC25
 {
 
-    public static void Run1(string[] args)
+    public static void Run1()
     {
         // read file
-        string[] lines = File.ReadAllLines(@"C:\Users\Vacuumlabs\source\repos\AdventOfCode2021\AdventOfCode01\input25.txt");
+        string[] lines = File.ReadAllLines(@"C:\Users\Vacuumlabs\source\repos\AdventOfCode2021\AdventOfCode01\inputs\input25.txt");
 
         Plane plane = new Plane(lines);
 
         int movesE;
         int movesS;
         int step = 0;
-
         do
         {
             movesE = plane.MoveEast();

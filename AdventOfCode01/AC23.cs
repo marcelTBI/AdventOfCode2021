@@ -1,8 +1,6 @@
-﻿
-
-class GameStateEqualityComparer : IEqualityComparer<GameState>
+﻿class GameStateEqualityComparer : IEqualityComparer<GameState>
 {
-    public bool Equals(GameState x, GameState y)
+    public bool Equals(GameState? x, GameState? y)
     {
         return x == y;
     }
@@ -37,11 +35,13 @@ class GameState
     public GameState()
     {
         hallway = new int[7];
-        corridors = new List<Stack<int>>();
-        corridors.Add(new Stack<int>());
-        corridors.Add(new Stack<int>());
-        corridors.Add(new Stack<int>());
-        corridors.Add(new Stack<int>());
+        corridors = new List<Stack<int>>
+        {
+            new Stack<int>(),
+            new Stack<int>(),
+            new Stack<int>(),
+            new Stack<int>()
+        };
         corridors[0].Push(2);
         corridors[0].Push(4);
         corridors[0].Push(4);
@@ -165,7 +165,7 @@ class GameState
         return res;
     }
 
-    public List<int> GetPassable(int hallway, int room)
+    public static List<int> GetPassable(int hallway, int room)
     {
         if (hallway - 1 <= room) return Enumerable.Range(hallway + 1, room - hallway + 1).ToList();
         else return Enumerable.Range(room + 2, hallway - room - 2).ToList();
@@ -208,7 +208,7 @@ class GameState
         Console.Write(corridors[3].Count);
         Console.WriteLine("###");
     }
-    public override bool Equals(object obj)
+    public override bool Equals(object? obj)
     {
         GameState? gs = obj as GameState;
         if (gs == null) return false;
@@ -229,12 +229,12 @@ class GameState
         return true;
     }
 
-    public static bool operator !=(GameState l, GameState r)
+    public static bool operator !=(GameState? l, GameState? r)
     {
         return !(l == r);
     }
 
-    public static bool operator ==(GameState l, GameState r)
+    public static bool operator ==(GameState? l, GameState? r)
     {
         if (ReferenceEquals(l, r)) return true;
         if (ReferenceEquals(r, null)) return false;
@@ -253,7 +253,7 @@ class GameState
 internal class AC23
 {
 
-    public static void Run2(string[] args)
+    public static void Run2()
     {
         // read file
         //string[] lines = File.ReadAllLines(@"C:\Users\Vacuumlabs\source\repos\AdventOfCode2021\AdventOfCode01\input22_s.txt");
@@ -267,7 +267,7 @@ internal class AC23
         // loop through states
         while (true)
         {
-            if (!stateQ.TryDequeue(out GameState gs, out long energy)) break;
+            if (!stateQ.TryDequeue(out GameState? gs, out long energy)) break;
             //gs.Print(energy);
             if (!gs.IsFinal())
             {

@@ -150,7 +150,7 @@ public class Players
 internal class AC21
 {
 
-    public static void Run1(string[] args)
+    public static void Run1()
     {
         // read file
         //string[] lines = File.ReadAllLines(@"C:\Users\Vacuumlabs\source\repos\AdventOfCode01\AdventOfCode01\input20.txt");
@@ -177,7 +177,7 @@ internal class AC21
     }
 
 
-    public static void Run2(string[] args)
+    public static void Run2()
     {
         // read file
         //string[] lines = File.ReadAllLines(@"C:\Users\Vacuumlabs\source\repos\AdventOfCode01\AdventOfCode01\input20.txt");

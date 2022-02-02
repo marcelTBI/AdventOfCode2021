@@ -11,10 +11,10 @@
         return newTemplate + template[^1];
     }
 
-    public static void Run1(string[] args)
+    public static void Run1()
     {
         // read file
-        string[] lines = File.ReadAllLines(@"C:\Users\Vacuumlabs\source\repos\AdventOfCode01\AdventOfCode01\input14.txt");
+        string[] lines = File.ReadAllLines(@"C:\Users\Vacuumlabs\source\repos\AdventOfCode2021\AdventOfCode01\inputs\input14.txt");
 
         // parse
         string template = lines[0].Trim();
@@ -57,10 +57,10 @@
         return countsRet;
     }
 
-    public static void Run2(string[] args)
+    public static void Run2()
     {
         // read file
-        string[] lines = File.ReadAllLines(@"C:\Users\Vacuumlabs\source\repos\AdventOfCode01\AdventOfCode01\input14.txt");
+        string[] lines = File.ReadAllLines(@"C:\Users\Vacuumlabs\source\repos\AdventOfCode2021\AdventOfCode01\inputs\input14.txt");
 
         // parse
         string template = lines[0].Trim();

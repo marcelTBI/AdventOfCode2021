@@ -1,11 +1,9 @@
-﻿using System;
-
-internal class AC02
+﻿internal class AC02
 {
 
-    public static void Run1(string[] args)
+    public static void Run1()
     {
-        string[] lines = System.IO.File.ReadAllLines(@"C:\Users\Vacuumlabs\source\repos\AdventOfCode01\AdventOfCode01\input2.txt");
+        string[] lines = File.ReadAllLines(@"C:\Users\Vacuumlabs\source\repos\AdventOfCode2021\AdventOfCode01\inputs\input2.txt");
         var direction = (from line in lines select line.Split()[0]).ToArray();
         var length = (from line in lines select Convert.ToInt32(line.Split()[1])).ToArray();
 
@@ -31,9 +29,9 @@ internal class AC02
         Console.WriteLine(x * depth);
     }
 
-    public static void Run2(string[] args)
+    public static void Run2()
     {
-        string[] lines = System.IO.File.ReadAllLines(@"C:\Users\Vacuumlabs\source\repos\AdventOfCode01\AdventOfCode01\input2.txt");
+        string[] lines = File.ReadAllLines(@"C:\Users\Vacuumlabs\source\repos\AdventOfCode2021\AdventOfCode01\inputs\input2.txt");
         var direction = (from line in lines select line.Split()[0]).ToArray();
         var length = (from line in lines select Convert.ToInt32(line.Split()[1])).ToArray();
 

@@ -95,10 +95,10 @@ public class Cube
 internal class AC22
 {
 
-    public static void Run1(string[] args)
+    public static void Run1()
     {
         // read file
-        string[] lines = File.ReadAllLines(@"C:\Users\Vacuumlabs\source\repos\AdventOfCode2021\AdventOfCode01\input22_s.txt");
+        string[] lines = File.ReadAllLines(@"C:\Users\Vacuumlabs\source\repos\AdventOfCode2021\AdventOfCode01\inputs\input22.txt");
 
         Leds leds = new Leds();
 
@@ -125,10 +125,10 @@ internal class AC22
 
     }
 
-    public static void Run2(string[] args)
+    public static void Run2()
     {
         // read file
-        string[] lines = File.ReadAllLines(@"C:\Users\Vacuumlabs\source\repos\AdventOfCode2021\AdventOfCode01\input22.txt");
+        string[] lines = File.ReadAllLines(@"C:\Users\Vacuumlabs\source\repos\AdventOfCode2021\AdventOfCode01\inputs\input22.txt");
 
         List<Cube> cubes = new List<Cube>();
 

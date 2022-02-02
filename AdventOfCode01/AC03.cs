@@ -1,6 +1,4 @@
-﻿using System;
-
-static class Extension
+﻿static class Extension
 {
     public static IEnumerable<T> SliceColumn<T>(this T[,] array, int column)
     {
@@ -43,10 +41,10 @@ static class Extension
 internal class AC03
 {
 
-    public static void Run1(string[] args)
+    public static void Run1()
     {
         // read file
-        string[] lines = File.ReadAllLines(@"C:\Users\Vacuumlabs\source\repos\AdventOfCode01\AdventOfCode01\input3.txt");
+        string[] lines = File.ReadAllLines(@"C:\Users\Vacuumlabs\source\repos\AdventOfCode2021\AdventOfCode01\inputs\input3.txt");
         // create matrix
         bool[,] matrix = new bool[lines.Length, lines[0].Length];
         //fill matrix
@@ -80,10 +78,10 @@ internal class AC03
         Console.WriteLine(gamma * epsilon);
     }
 
-    public static void Run2(string[] args)
+    public static void Run2()
     {
         // read file
-        string[] lines = File.ReadAllLines(@"C:\Users\Vacuumlabs\source\repos\AdventOfCode01\AdventOfCode01\input3.txt");
+        string[] lines = File.ReadAllLines(@"C:\Users\Vacuumlabs\source\repos\AdventOfCode2021\AdventOfCode01\inputs\input3.txt");
         // create matrix
         bool[,] matrix = new bool[lines.Length, lines[0].Length];
         //fill matrix
@@ -94,7 +92,8 @@ internal class AC03
                 matrix[i, j] = lines[i][j] == '1';
             }
         }
-        bool[,] savedMatrix = matrix.Clone() as bool[,];
+        bool[,]? savedMatrix = matrix.Clone() as bool[,];
+        if (savedMatrix == null) throw new Exception();
 
         
         for (int i = 0; i < lines[0].Length; i++)

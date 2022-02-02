@@ -28,10 +28,10 @@
         return ret;
     }
 
-    public static void Run1(string[] args)
+    public static void Run1()
     {
         // read file
-        string[] lines = File.ReadAllLines(@"C:\Users\Vacuumlabs\source\repos\AdventOfCode01\AdventOfCode01\input12.txt");
+        string[] lines = File.ReadAllLines(@"C:\Users\Vacuumlabs\source\repos\AdventOfCode2021\AdventOfCode01\inputs\input12.txt");
 
         // parse
         Dictionary<string, List<string>> caves = new Dictionary<string, List<string>>();

@@ -2,8 +2,8 @@
 
 internal class Entry
 {
-    private static void Main(string[] args)
+    private static void Main()
     {
-        AC25.Run1(args);
+        AC19.Run1();
     }
 }

@@ -1,7 +1,4 @@
-﻿using System;
-
-
-public class Bingo
+﻿public class Bingo
 {
     public List<List<int>> numbers = new List<List<int>>();
     public List<List<int>> check = new List<List<int>>();
@@ -10,12 +7,13 @@ public class Bingo
 
     public bool Add(List<int> row)
     {
-        if (numbers.Count == 5) {
-            throw new InvalidOperationException("Already full");    
+        if (numbers.Count == 5)
+        {
+            throw new InvalidOperationException("Already full");
         }
         numbers.Add(row);
-        check.Add(new List<int> {0,0,0,0,0});
-        return numbers.Count == 5; 
+        check.Add(new List<int> { 0, 0, 0, 0, 0 });
+        return numbers.Count == 5;
     }
 
     public bool Mark(int num)
@@ -24,9 +22,10 @@ public class Bingo
         {
             for (int j = 0; j < numbers[i].Count; j++)
             {
-                if (numbers[i][j] == num) {
+                if (numbers[i][j] == num)
+                {
                     check[i][j] = 1;
-                    if (check[i][0] + check[i][1] + check[i][2] + check[i][3] + check[i][4] == 5) 
+                    if (check[i][0] + check[i][1] + check[i][2] + check[i][3] + check[i][4] == 5)
                     {
                         alreadyWon = true;
                         return true;
@@ -63,10 +62,10 @@ public class Bingo
 internal class AC04
 {
 
-    public static void Run1(string[] args)
+    public static void Run1()
     {
         // read file
-        string[] lines = File.ReadAllLines(@"C:\Users\Vacuumlabs\source\repos\AdventOfCode01\AdventOfCode01\input4.txt");
+        string[] lines = File.ReadAllLines(@"C:\Users\Vacuumlabs\source\repos\AdventOfCode2021\AdventOfCode01\inputs\input4.txt");
 
         // read numbers
         var numbers = (from str in lines[0].Split(',') select Convert.ToInt32(str)).ToArray();
@@ -75,14 +74,15 @@ internal class AC04
         bool startNewBingo = true;
 
         // read bingos 
-        for (int i = 1; i < lines.Length; i++) {
+        for (int i = 1; i < lines.Length; i++)
+        {
             if (lines[i].Trim() == "")
-            { 
-                continue; 
+            {
+                continue;
             }
             var a = lines[i].Trim().Split();
             var ints = (from str in lines[i].Trim().Split(' ', StringSplitOptions.RemoveEmptyEntries) select Convert.ToInt32(str)).ToList();
-            if (ints.Count() == 5)
+            if (ints.Count == 5)
             {
                 if (startNewBingo)
                 {

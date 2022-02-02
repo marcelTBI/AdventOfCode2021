@@ -1,6 +1,4 @@
-﻿using System;
-
-public class Vent
+﻿public class Vent
 {
     public int x1;
     public int y1;
@@ -36,10 +34,10 @@ public class Vent
 internal class AC05
 {
 
-    public static void Run1(string[] args)
+    public static void Run1()
     {
         // read file
-        string[] lines = File.ReadAllLines(@"C:\Users\Silence\source\repos\AdventOfCode01\AdventOfCode01\input5.txt");
+        string[] lines = File.ReadAllLines(@"C:\Users\Vacuumlabs\source\repos\AdventOfCode2021\AdventOfCode01\inputs\input5.txt");
 
         // parse lines
         List<Vent> vents = new List<Vent>();
